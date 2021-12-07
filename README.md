@@ -23,7 +23,21 @@ Basic usage of the CR-VAE API, that can be added to your favorite VAE variant an
   ... data loading
   
   crvae = CRVAE(gamma=self.gamma, beta_1=self.beta_1, beta_2=self.beta_2)
-  loss, log = crvae.calculate_loss(images, augmented_images)
+  loss, log = crvae.calculate_loss(model, images, augmented_images)
+  loss.backward()
+  
+  ... optimizer step
+  
+```
+
+To use base hyperparameters, simply use
+
+```python
+  from CRVAE import CRVAE
+  
+  ... data loading
+  
+  loss, logs = CRVAE().calculate_loss(model, images, augmented_images)
   loss.backward()
   
   ... optimizer step
