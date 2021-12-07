@@ -9,9 +9,7 @@ Official code release for Consistency Regularization for VAEs, NeurIPS 2021.
 
 ```
   git clone https://github.com/sinhasam/CRVAE.git
-  
   cd CRVAE
-  
   pip3 install -e .
 ```
   
@@ -20,15 +18,12 @@ Official code release for Consistency Regularization for VAEs, NeurIPS 2021.
 Basic usage of the CR-VAE API, that can be added to your favorite VAE variant and training:
 
 ```python
-
   from CRVAE import CRVAE
   
   ... data loading
   
   crvae = CRVAE(gamma=self.gamma, beta_1=self.beta_1, beta_2=self.beta_2)
-  
-  loss, log = crvae.calculate_loss(images, augmented_image)
-
+  loss, log = crvae.calculate_loss(images, augmented_images)
   loss.backward()
   
   ... optimizer step
