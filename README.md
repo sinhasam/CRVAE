@@ -6,6 +6,8 @@ Official code release for Consistency Regularization for VAEs, NeurIPS 2021.
 
 [Arxiv](https://arxiv.org/abs/2105.14859),  [Proceedings](https://papers.nips.cc/paper/2021/hash/6c19e0a6da12dc02239312f151072ddd-Abstract.html)
 
+### If there are any questions, please email: samarth.sinha@mail.utoronto.ca. Github issues are not checked often, and may be missed.
+
 # Installation
 
 ```
@@ -50,9 +52,10 @@ There are two simple VAE architechtures implemented but can be easily extended.
 To use the architectures:
 
 ```python
-from CRVAE.models import CNNVAE
+from CRVAE.models import CNNVAE, MLPVAE
 
-cnn_model = CNNVAE()
+cnn_model = CNNVAE(in_channels=3)
+mlp_model = MLPVAE(latent_dim=32)
 ```
 
 
@@ -64,6 +67,7 @@ from CRVAE.augmentations import get_augmentation
 simple_augmentation = get_augmentation('simple')
 large_augmentation_normalize = get_augmentation('large', normalize=True)
 large_color_jitter_augmentation = get_augmentation('large_jitter', normalize=True)
+# vertical flip might not be suitable for all datasets since it assumes data symmetry
 large_vertical_flip = get_augmentation('large_vertical_flip', normalize=True)
 ...
 ```
